@@ -1,0 +1,28 @@
+#######################################
+# Syntax Coloring Map For ESP8266LaboiteHT1632C
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+ESP8266LaboiteHT1632C	KEYWORD1
+LaboiteHT1632C	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+init	KEYWORD2
+intensity	KEYWORD2
+clear	KEYWORD2
+test	KEYWORD2
+display	KEYWORD2
+
+#######################################
+# Instances (KEYWORD2)
+#######################################
+
+#######################################
+# Constants (LITERAL1)
+#######################################
