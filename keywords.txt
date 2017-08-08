@@ -7,7 +7,7 @@
 #######################################
 
 ESP8266LaboiteHT1632C	KEYWORD1
-LaboiteHT1632C	KEYWORD1
+LedMatrixPanel	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)

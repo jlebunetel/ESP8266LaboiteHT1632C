@@ -1,11 +1,11 @@
 #include "Arduino.h"
 #include "ESP8266LaboiteHT1632C.h"
 
-LaboiteHT1632C::LaboiteHT1632C(void) {
+LedMatrixPanel::LedMatrixPanel(void) {
   //init();
 }
 
-void LaboiteHT1632C::init(void) {
+void LedMatrixPanel::init(void) {
     pinMode(14, OUTPUT); // DATA
     pinMode(12, OUTPUT); // CS
     pinMode(13, OUTPUT); // WR
@@ -15,7 +15,7 @@ void LaboiteHT1632C::init(void) {
     clear();
 }
 
-void LaboiteHT1632C::begin(void) {
+void LedMatrixPanel::begin(void) {
   // initialisation de la matrice de led
   // apparement les broches OSC et SYNC des quatres HT1632 ne sont pas reliées dans cette matrice
   // on ne peut donc pas définir le premier HT1632 en MASTER et les suivants en SLAVE,
@@ -50,7 +50,7 @@ void LaboiteHT1632C::begin(void) {
   selectNone();
 }
 
-void LaboiteHT1632C::intensity(uint8_t value) {
+void LedMatrixPanel::intensity(uint8_t value) {
   // value between 0 and 15
   if (value > 15) {
     value = 15;
@@ -62,13 +62,13 @@ void LaboiteHT1632C::intensity(uint8_t value) {
   selectNone();
 }
 
-void LaboiteHT1632C::setIntensity() {
+void LedMatrixPanel::setIntensity() {
   //selectAll();
   commandWrite(intentity_value);
   //selectNone();
 }
 
-void LaboiteHT1632C::selectAll() {
+void LedMatrixPanel::selectAll() {
   HT1632_CLK_0;  // clock line is 0
   HT1632_CS_0; // send "0" to cs port
   CLK_DELAY;
@@ -105,7 +105,7 @@ void LaboiteHT1632C::selectAll() {
   CLK_DELAY;
 }
 
-void LaboiteHT1632C::selectNone() {
+void LedMatrixPanel::selectNone() {
   HT1632_CLK_0;  // clock line is 0
   HT1632_CS_1; // send "1" to cs port
   CLK_DELAY;
@@ -135,7 +135,7 @@ void LaboiteHT1632C::selectNone() {
   CLK_DELAY;
 }
 
-void LaboiteHT1632C::commandWrite(uint16_t command) {
+void LedMatrixPanel::commandWrite(uint16_t command) {
   uint16_t j;
   command = command & 0x0fff;   // 12-bit command word, mask upper four bits
 
@@ -153,7 +153,7 @@ void LaboiteHT1632C::commandWrite(uint16_t command) {
   }
 }
 
-void LaboiteHT1632C::clear() {
+void LedMatrixPanel::clear() {
   selectAll();
   // pour un HT1632, soit deux matrice 8x8 bicolores :
   // on selectionne la première adresse 0x00
@@ -204,7 +204,7 @@ void LaboiteHT1632C::clear() {
   selectNone();
 }
 
-void LaboiteHT1632C::dataWrite(uint8_t * buffer128) {
+void LedMatrixPanel::dataWrite(uint8_t * buffer128) {
   // pour un HT1632, soit deux matrice 8x8 bicolores :
   // on selectionne la première adresse 0x00
   // en envoyant la séquence 1010000000
@@ -303,7 +303,7 @@ void LaboiteHT1632C::dataWrite(uint8_t * buffer128) {
   }
 }
 
-void LaboiteHT1632C::display(uint8_t * buffer128) {
+void LedMatrixPanel::display(uint8_t * buffer128) {
   // il arrive réguliairement qu'il y ai un bug dans l'affichage
   // il semblerait qu'il y ai un problème de synchronisation entre les quatres
   // HT1632c. Pour palier à ce problème, et faute de mieux,  on réinitialise les

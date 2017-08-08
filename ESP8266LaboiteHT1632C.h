@@ -78,15 +78,15 @@
 
 
 // library interface description
-class LaboiteHT1632C {
+class LedMatrixPanel {
   public:
     // constructors
-    LaboiteHT1632C(void);
+    LedMatrixPanel(void);
 
     void init();
     void intensity(uint8_t value);
     void clear();
-    void test();
+    //void test();
     void display(uint8_t * buffer128);
 
   private:

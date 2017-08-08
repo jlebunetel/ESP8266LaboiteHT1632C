@@ -1,6 +1,6 @@
 #include <ESP8266LaboiteHT1632C.h>
 
-LaboiteHT1632C afficheur;
+LedMatrixPanel afficheur;
 
 uint8_t image[128] = {0b11000000, 0b00000000, 0b00000000, 0b00000000, // leds rouges
                       0b00000000, 0b00100000, 0b00000000, 0b00000000,
