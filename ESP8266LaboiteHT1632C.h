@@ -59,23 +59,6 @@
 #define PWM_15         0b100101011100 //PWM 15/16 duty
 #define PWM_16         0b100101011110 //PWM 16/16 duty
 
-#define BUFFER_LENGHT 128
-
-#define BLACK 0
-#define GREEN 1
-#define RED 2
-#define ORANGE 3
-#define GREEN_INVERTED 4
-#define RED_INVERTED 5
-#define ORANGE_INVERTED 6
-
-#define LEFT 0
-#define RIGHT 1
-#define CENTER 2
-
-#define FIRST 0
-#define SECOND 1
-
 
 // library interface description
 class LedMatrixPanel {
