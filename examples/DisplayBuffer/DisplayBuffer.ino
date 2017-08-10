@@ -1,5 +1,10 @@
 #include <ESP8266LaboiteHT1632C.h>
 
+// pin definition
+// D5 = GPIO14 = Blue = DATA
+// D6 = GPIO12 = Green = CS
+// D7 = GPIO13 = Yellow = WR
+// D8 = GPIO15 = Orange = CLK
 LedMatrixPanel afficheur;
 
 uint8_t image[128] = {0b11000000, 0b00000000, 0b00000000, 0b00000000, // leds rouges
